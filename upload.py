@@ -50,7 +50,10 @@ class FileWithCallback(object):
 
 
 def callback(progress):
-    sys.stdout.write('\r{1}% [{0}]'.format('#' * (progress // 10), progress))
+    bar_size = 10
+    p = progress // bar_size
+    bar = '#' * p + ' ' * bar_size - p
+    sys.stdout.write('\r{1}% [{0}]'.format(bar, progress))
     sys.stdout.flush()
 
 
