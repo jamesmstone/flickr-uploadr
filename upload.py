@@ -50,8 +50,8 @@ class FileWithCallback(object):
 
 
 def callback(progress):
-    sys.stderr.write('\r{1}% [{0}]'.format('#' * (progress // 10), progress))
-    sys.stderr.flush()
+    sys.stdout.write('\r{1}% [{0}]'.format('#' * (progress // 10), progress))
+    sys.stdout.flush()
 
 
 photo = pkg_resources.resource_filename(__name__, 'test.png')
