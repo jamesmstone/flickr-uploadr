@@ -77,9 +77,9 @@ for full_filename in os.listdir('/images'):
 
             uploadResp = flickr.upload(filename=params['filename'], fileobj=params['fileobj'], is_public=0, is_friend=0,
                                        is_family=1)
-
+            callback(100)
             photo_id = uploadResp.findall('photoid')[0].text
-            print(' ' + photo_id)
+            print(' success! flickr photo id= ' + photo_id)
             sys.stdout.flush()
         except:
             try:
@@ -94,9 +94,9 @@ for full_filename in os.listdir('/images'):
                                            is_friend=0,
                                            is_family=1
                                            )
-
+                callback(100)
                 photo_id = uploadResp.findall('photoid')[0].text
-                print(' ' + photo_id)
+                print(' success! flickr photo id: ' + photo_id)
                 sys.stdout.flush()
             except:
                 print("FAILED " + full_filename + " for the last time")
