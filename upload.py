@@ -66,14 +66,31 @@ for full_filename in os.listdir('/images'):
         ext = ''
     if ext in ['png', 'jpeg', 'jpg', 'avi', 'mp4', 'gif', 'tiff', 'svg', 'mov', 'wmv', 'ogv', 'mpg', 'mp2', 'mpeg',
                'mpe', 'mpv']:
-        print(full_filename)
-        sys.stdout.flush()
-        params['filename'] = dir + full_filename
-        params['fileobj'] = FileWithCallback(params['filename'], callback)
+        try:
+            print(full_filename)
+            sys.stdout.flush()
+            params['filename'] = dir + full_filename
+            params['fileobj'] = FileWithCallback(params['filename'], callback)
 
-        uploadResp = flickr.upload(filename=params['filename'], fileobj=params['fileobj'], is_public=0, is_friend=0,
-                                   is_family=1)
+            uploadResp = flickr.upload(filename=params['filename'], fileobj=params['fileobj'], is_public=0, is_friend=0,
+                                       is_family=1)
 
-        photo_id = uploadResp.findall('photoid')[0].text
-        print(' ' + photo_id)
-        sys.stdout.flush()
+            photo_id = uploadResp.findall('photoid')[0].text
+            print(' ' + photo_id)
+            sys.stdout.flush()
+        except:
+            try:
+                print("FAILED " + full_filename + "trying once again")
+                sys.stdout.flush()
+                params['filename'] = dir + full_filename
+                params['fileobj'] = FileWithCallback(params['filename'], callback)
+
+                uploadResp = flickr.upload(filename=params['filename'], fileobj=params['fileobj'], is_public=0, is_friend=0,
+                                           is_family=1)
+
+                photo_id = uploadResp.findall('photoid')[0].text
+                print(' ' + photo_id)
+                sys.stdout.flush()
+            except:
+                print("FAILED " + full_filename + " for the last time")
+                pass
