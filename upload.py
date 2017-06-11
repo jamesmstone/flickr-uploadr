@@ -9,7 +9,7 @@ import pkg_resources
 api_key = os.getenv('api_key')
 api_secret = os.getenv('api_secret')
 
-flickr = flickrapi.FlickrAPI(api_key, api_secret, token_cache_location='token.sql')
+flickr = flickrapi.FlickrAPI(api_key, api_secret, token_cache_location='/token')
 
 print('Step 1: authenticate')
 
