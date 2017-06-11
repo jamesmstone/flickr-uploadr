@@ -58,7 +58,8 @@ photo = pkg_resources.resource_filename(__name__, 'test.png')
 params = {}
 dir = '/images/'
 for full_filename in os.listdir('/images'):
-    filename, ext = full_filename.split('.')
+    filename_split = full_filename.split('.')
+    ext = filename_split[1] or ''
     if ext in ['png', 'jpeg', 'jpg', 'avi', 'mp4', 'gif', 'tiff', 'svg', 'mov', 'wmv', 'ogv', 'mpg', 'mp2', 'mpeg',
                'mpe', 'mpv']:
         print(full_filename)
