@@ -85,8 +85,12 @@ for full_filename in os.listdir('/images'):
                 params['filename'] = dir + full_filename
                 params['fileobj'] = FileWithCallback(params['filename'], callback)
 
-                uploadResp = flickr.upload(filename=params['filename'], fileobj=params['fileobj'], is_public=0, is_friend=0,
-                                           is_family=1)
+                uploadResp = flickr.upload(filename=params['filename'],
+                                           fileobj=params['fileobj'],
+                                           is_public=0,
+                                           is_friend=0,
+                                           is_family=1
+                                           )
 
                 photo_id = uploadResp.findall('photoid')[0].text
                 print(' ' + photo_id)
