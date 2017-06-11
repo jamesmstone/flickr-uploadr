@@ -4,7 +4,6 @@ import os
 
 import sys
 
-import pickle
 import pkg_resources
 
 api_key = os.getenv('api_key')
@@ -71,15 +70,3 @@ for full_filename in os.listdir('/images'):
 
         photo_id = uploadResp.findall('photoid')[0].text
         print(' ' + photo_id)
-# photosets = flickr.photosets.getList()
-# print (photosets.tag)
-# for child in photosets:
-#     print(child.tag, child.attrib, child.attrib.text)
-#     print("\nsub_child:\n")
-#     for sub_child in child:
-#         print(sub_child.tag, sub_child.attrib, sub_child.text)
-# photoset = photosets.findall('photoset')[0]
-# print(photoset.text, photoset.attrib.get('id'))
-
-
-# flickr.photosets.addPhoto('', photo_id)
