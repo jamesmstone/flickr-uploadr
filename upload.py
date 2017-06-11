@@ -59,7 +59,11 @@ params = {}
 dir = '/images/'
 for full_filename in os.listdir('/images'):
     filename_split = full_filename.split('.')
-    ext = filename_split[1] or ''
+
+    if len(filename_split) == 2:
+        ext = filename_split[1]
+    else:
+        ext = ''
     if ext in ['png', 'jpeg', 'jpg', 'avi', 'mp4', 'gif', 'tiff', 'svg', 'mov', 'wmv', 'ogv', 'mpg', 'mp2', 'mpeg',
                'mpe', 'mpv']:
         print(full_filename)
