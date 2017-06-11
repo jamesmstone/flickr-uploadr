@@ -67,6 +67,7 @@ for full_filename in os.listdir('/images'):
     if ext in ['png', 'jpeg', 'jpg', 'avi', 'mp4', 'gif', 'tiff', 'svg', 'mov', 'wmv', 'ogv', 'mpg', 'mp2', 'mpeg',
                'mpe', 'mpv']:
         print(full_filename)
+        sys.stdout.flush()
         params['filename'] = dir + full_filename
         params['fileobj'] = FileWithCallback(params['filename'], callback)
 
@@ -75,3 +76,4 @@ for full_filename in os.listdir('/images'):
 
         photo_id = uploadResp.findall('photoid')[0].text
         print(' ' + photo_id)
+        sys.stdout.flush()
