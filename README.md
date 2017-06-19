@@ -1,5 +1,5 @@
 # Flickr-uploadr
-A docker image that uplaods all media in a dir to flickr
+A docker image that uploads all media in a dir to flickr
 
 ## Example Usage:
 
