@@ -1,4 +1,12 @@
 # Flickr-uploadr
+
+## Warning: Not actively being developed
+
+This has not been updated ( or used ) by me in years!  I currently have no plans to update it again.
+
+--------
+
+
 A docker image that uploads all media in a dir to flickr
 
 ## Example Usage:
